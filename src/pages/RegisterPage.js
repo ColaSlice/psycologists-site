@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 
 function RegisterUser(username, password, email, license) {
-    axios.post("https://localhost:7253/api/Proxy/register", {
+    axios.post("https://localhost:5000/api/Proxy/register", {
         username,
         password,
         email,

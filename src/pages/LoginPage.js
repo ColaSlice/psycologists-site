@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 function GetToken(username, password, email, license) {
-    axios.post("https://localhost:7253/api/Proxy/login", {
+    axios.post("https://localhost:5000/api/Proxy/login", {
         username,
         password,
         email,

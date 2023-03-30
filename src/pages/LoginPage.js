@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 function GetToken(username, password, email, license) {
-    axios.post("https://localhost:5000/api/Proxy/login", {
+    axios.post("http://localhost:5002/api/Proxy/login", {
         username,
         password,
         email,
@@ -71,12 +71,14 @@ function LoginPage() {
     return (
         <div onLoad={check}>
             <h1>Login page</h1>
-            <form ref={nameForm}>
-                <input type="text" label="username" name="username"/>
-                <input type="password" label="password" name="password"></input>
-                <input type="text" label="email" name="email"></input>
-                <input type="text" label="license" name="license"></input>
-            </form>
+            <div className='centerDiv2'>
+                <form ref={nameForm}>
+                    <input type="text" label="username" name="username"/>
+                    <input type="password" label="password" name="password"></input>
+                    <input type="text" label="email" name="email"></input>
+                    <input type="text" label="license" name="license"></input>
+                </form>
+            </div>
             <button onClick={login}>Logind</button>
         </div>
     );

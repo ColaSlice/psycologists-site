@@ -4,8 +4,8 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-  }
-  
+}
+
 li {
 float: left;
 }
@@ -31,7 +31,6 @@ input[type=text] {
     border-bottom: 2px solid red;
     margin-right: 15px;
     float:left;
-
 }
 
 input[type=password] {
@@ -39,4 +38,24 @@ input[type=password] {
     border-bottom: 2px solid red;
     margin-right: 15px;
     float:left;
+}
+
+button {
+    border-bottom: 2px solid red;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.centerDiv {
+    margin-left: 25%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerDiv2 {
+    margin-left: 25%;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
 }

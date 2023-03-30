@@ -6,13 +6,12 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 
 function RegisterUser(username, password, email, license) {
-    axios.post("https://localhost:5000/api/Proxy/register", {
+    axios.post("http://localhost:5002/api/Proxy/register", {
         username,
         password,
         email,
         license
     }).then((response) => {
-        localStorage.setItem("respone", JSON.stringify(response.data));
         if (response.status === 200) {
             localStorage.setItem("ok", JSON.stringify(response.data));
         }
@@ -40,10 +39,12 @@ function RegisterPage() {
             <h1>Register page</h1>
             <nav>
             <form ref={nameForm}>
-                <input className='hej' type="text" label="username" name="username"/>
-                <input className='hej' type="password" label="password" name="password"></input>
-                <input className='hej' type="text" label="email" name="email"></input>
-                <input className='hej' type="text" label="license" name="license"></input>
+                <div className='centerDiv2'>
+                    <input type="text" label="username" name="username"/>
+                    <input type="password" label="password" name="password"></input>
+                    <input type="text" label="email" name="email"></input>
+                    <input type="text" label="license" name="license"></input>
+                </div>
             </form>
             <button onClick={register}>Registrer</button>
             </nav>

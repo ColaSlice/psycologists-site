@@ -22,6 +22,7 @@ function App() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/LoginPage">Login</Link></li>
           <li><Link to="/RegisterPage">Register</Link></li>
+          <li><Link to="MessagePage">Message</Link></li>
         </ul>
       </nav>
       <Routes>

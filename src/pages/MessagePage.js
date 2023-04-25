@@ -1,31 +1,33 @@
 import * as React from 'react';
-import { useState, useRef } from "react";
-import { useNavigate } from 'react-router-dom';
-import jwt from "jwt-decode";
-import Cookies from 'universal-cookie';
+import { useState } from "react";
 import axios from 'axios';
-
-
+import { useId, useEffect} from 'react';
 
 
 function MessagePage() {
-    const nameForm = useRef(null);
-    const SendMessage = () => {
-        const form = nameForm.current
+    const [isLoading, setLoading] = useState(true);
+    const [user, setUser] = useState();
+
+    useEffect(() => {
+        axios.get("https://testside123.dk/api/DatabaseProxy/getmessages?toUser=a").then(response => {
+            setUser(response.data);
+            setLoading(false);
+        });
+    }, []);
+
+    if (isLoading) {
+        return <div className="App">Loading...</div>;
     }
-    
+
     return (
-        <div>
+        <div className='CenterDiv2'>
             <h1>Message page</h1>
-            <div className='centerDiv'>
-                
+            <p>From user: {user[0].user}</p>
+            <div>
+                <ol>
+                    {user.map((item) => (<p>{item.message}</p>))}
+                </ol>
             </div>
-            <div className='centerDiv'>
-                <form ref={nameForm}>
-                    <input type="text" label="chatbox" name="chatbox"/>
-                </form>
-            </div>
-            <button onClick={SendMessage}>Logind</button>
         </div>
     );
 }

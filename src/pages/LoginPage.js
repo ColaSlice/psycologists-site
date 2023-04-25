@@ -7,8 +7,7 @@ import { loadCache } from 'axios-hooks';
 function LoginPage() {
     const [isLoading, setLoading] = useState(true);
     let navigate = useNavigate();
-
-    
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
     const SetLoadingFalse = () => {
         setLoading(false);
@@ -16,7 +15,6 @@ function LoginPage() {
 
     useEffect(() => {
         if (!isLoading) {
-            alert(isLoading)
             const userData = {
                 username: "a",
                 password: "a",
@@ -25,13 +23,11 @@ function LoginPage() {
             }
             axios.post("https://testside123.dk/api/LoginProxy/login", userData).then(response => {
                 localStorage.setItem("user", response.data.token)
-                alert(response.data.token)
-                setLoading(true);
             });
         }
     });
 
-    if(!isLoading){
+    if(localStorage.getItem("user")) {
         navigate("/PrivatePage");
     }
 

@@ -1,7 +1,9 @@
 import * as React from 'react';
+import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from 'react-router-dom';
 
 function PrivatePage() {
+    const [isLoading, setLoading] = useState(true);
     let navigate = useNavigate();
     const logout = () => {
         localStorage.removeItem("user");

@@ -2,12 +2,10 @@ import * as React from 'react';
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { loadCache } from 'axios-hooks';
 
 function LoginPage() {
     const [isLoading, setLoading] = useState(true);
     let navigate = useNavigate();
-    const delay = ms => new Promise(res => setTimeout(res, ms));
 
     const SetLoadingFalse = () => {
         setLoading(false);
@@ -23,12 +21,15 @@ function LoginPage() {
             }
             axios.post("https://testside123.dk/api/LoginProxy/login", userData).then(response => {
                 localStorage.setItem("user", response.data.token)
+                setLoading(true)
             });
         }
     });
 
-    if(localStorage.getItem("user")) {
-        navigate("/PrivatePage");
+    if(isLoading) {
+        if(localStorage.getItem("user")) {
+            navigate("/PrivatePage");
+        }
     }
 
     if(isLoading) {

@@ -1,16 +1,12 @@
 import * as React from 'react';
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import Popup from 'reactjs-popup';
 import axios from 'axios';
 import 'reactjs-popup/dist/index.css';
 
 function RegisterPage() {
     const [isLoading, setLoading] = useState(true);
-    const [isNavigate, setNavigate] = useState(false);
     const [isRegistrered, setRegistrered] = useState(false);
     const nameForm = useRef(null);
-    let navigate = useNavigate();
 
     const SetLoadingFalse = () => {
         setLoading(false);
@@ -19,20 +15,27 @@ function RegisterPage() {
     useEffect(() => {
         const form = nameForm.current;
         if (!isLoading) {
-            const userData = {
-                username: form['username'].value,
-                password: form['password'].value,
-                email: form['email'].value,
-                license: form['license'].value
-            }
-            axios.post("https://testside123.dk/api/LoginProxy/register", userData).then(response => {
-                if(response.status.valueOf != 400){
-                    setNavigate(true);
+            if(!isRegistrered){
+                const userData = {
+                    username: form['username'].value,
+                    password: form['password'].value,
+                    email: form['email'].value,
+                    license: form['license'].value
                 }
-            });
+                axios.post("https://testside123.dk/api/LoginProxy/register", userData).then(response => {
+                    setRegistrered(true);
+                    setLoading(false);
+                });
+            }
         }
     });
 
+    if(!isLoading){
+        if(isRegistrered){
+            alert("You have been registrered, please go to the login page.")
+        }
+    }
+    
     return (
         <div>
             <h1>Register page</h1>
@@ -45,27 +48,7 @@ function RegisterPage() {
                         <input type="text" label="license" name="license"></input>
                     </div>
                 </form>
-                <Popup trigger=
-                    {<button onClick={SetLoadingFalse}>Registrer</button>}
-                    modal nested>
-                    {
-                        close => (
-                            <div className='modal'>
-                                <div className='content'>
-                                    <h3>You have been registrered</h3>
-                                    <h4>Please do go to the login page</h4>
-                                </div>
-                                <div>
-                                    <button onClick=
-                                        {() => close()}>
-                                            Close modal
-                                    </button>
-                                </div>
-                            </div>
-                        )
-                    }
-                </Popup>
-                
+                <button onClick={SetLoadingFalse}>Registrer</button>
             </nav>
         </div>
     )

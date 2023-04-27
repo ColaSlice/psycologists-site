@@ -1,2 +1,2 @@
-# phycologists-site
+# psycologists-site
 Site for my student project

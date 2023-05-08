@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState, useRef, useEffect } from "react";
 import axios from 'axios';
-import 'reactjs-popup/dist/index.css';
 
 function RegisterPage() {
     const [isLoading, setLoading] = useState(true);
@@ -15,40 +14,56 @@ function RegisterPage() {
     useEffect(() => {
         const form = nameForm.current;
         if (!isLoading) {
-            if(!isRegistrered){
+            if(!isRegistrered) {
                 const userData = {
                     username: form['username'].value,
                     password: form['password'].value,
                     email: form['email'].value,
                     license: form['license'].value
                 }
-                axios.post("https://testside123.dk/api/LoginProxy/register", userData).then(response => {
-                    setRegistrered(true);
-                    setLoading(false);
-                });
+                try {
+                    axios.post("https://testside123.dk/api/LoginProxy/register", userData).then(response => {
+                        if(response.status.valueOf !== 400) {
+                            setRegistrered(true);
+                            setLoading(true);
+                        }
+                    });
+                } catch (error) {
+                    alert(error)
+                }
             }
         }
-    });
+    }, [isLoading, isRegistrered]);
 
-    if(!isLoading){
+    useEffect(() => {
         if(isRegistrered){
-            alert("You have been registrered, please go to the login page.")
+            if(isLoading){
+                alert("You have been registrered, please go to the login page.")
+            }
         }
-    }
+    }, [isRegistrered, isLoading])
     
     return (
         <div>
-            <h1>Register page</h1>
             <nav>
-                <form ref={nameForm}>
-                    <div className='centerDiv2'>
-                        <input type="text" label="username" name="username"/>
-                        <input type="password" label="password" name="password"></input>
-                        <input type="text" label="email" name="email"></input>
-                        <input type="text" label="license" name="license"></input>
-                    </div>
-                </form>
-                <button onClick={SetLoadingFalse}>Registrer</button>
+                <div className='neo_register'>
+                    <label>Register Account</label>
+                    <form ref={nameForm}>
+                        <input className='input' type="text" label="username" name="username" placeholder='Full Name'/>
+                        <br/>
+                        <br/>
+                        <input className='input' type="password" label="password" name="password" placeholder='P@ssword'></input>
+                        <br/>
+                        <br/>
+                        <input className='input' type="text" label="email" name="email" placeholder='Email@email.com'></input>
+                        <br/>
+                        <br/>
+                        <input className='input' ype="text" label="license" name="license" placeholder='Profesional License'></input>
+                        <br/>
+                        <br/>
+                    </form>
+                    <button onClick={SetLoadingFalse}>Registrer</button>
+                </div>
             </nav>
         </div>
     )

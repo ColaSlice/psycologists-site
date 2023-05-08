@@ -11,10 +11,12 @@ import MessagePage from './pages/MessagePage';
 import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
+  /*
   let auth = {'token':false};
     if (localStorage.getItem("ok")) {
         auth = {'token':true};
     }
+    */
   return (
     <>
       <nav>

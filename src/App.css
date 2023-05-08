@@ -1,3 +1,4 @@
+/*
 ul {
     list-style-type: none;
     margin: 0;
@@ -5,57 +6,117 @@ ul {
     overflow: hidden;
     background-color: #333;
 }
+*/
+
+ul {
+    width: 90%;
+    margin-left: 5%;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  10px 10px 20px #656565,
+                -20px -20px 60px #ffffff;
+}
 
 li {
-float: left;
+    float: left;
 }
 
 li a {
-display: block;
-color: white;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 li a:hover {
-background-color: #111;
+    background: #e8e8e8;
+    box-shadow: inset 20px 20px 60px #656565,
+                inset -20px -20px 60px #ffffff;
+    transition: 0.3s;
 }
 
 .active {
 background-color: #04AA6D;
 }
 
-input[type=text] {
+.input {
+    margin-top: 20px;
+    margin-left: 15%;
+    width: 60%;
+    outline-color: #404040;
     border: none;
-    border-bottom: 2px solid red;
-    margin-right: 15px;
-    float:left;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #e8e8e8;
+    box-shadow: 10px 10px 20px #9a9a9a,
+                -10px -10px 20px #ffffff;
+    transition: 0.3s;
 }
 
-input[type=password] {
-    border: none;
-    border-bottom: 2px solid red;
-    margin-right: 15px;
-    float:left;
+.input:focus {
+    outline-color: #e8e8e8;
+    background: #e8e8e8;
+    box-shadow: inset 20px 20px 60px #c5c5c5,
+                inset -20px -20px 60px #ffffff;
+    transition: 0.3s;
+}
+
+.neo_login {
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 40%;
+    margin-right: 40%;
+    height: 270px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  10px 10px 20px #8b8b8b,
+                -10px -10px 20px #ffffff;
+}
+
+.neo_register {
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 40%;
+    margin-right: 40%;
+    height: 450px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  10px 10px 20px #8b8b8b,
+                -10px -10px 20px #ffffff;
+}
+
+.neo_private {
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 40%;
+    margin-right: 40%;
+    height: 450px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  10px 10px 20px #8b8b8b,
+                -10px -10px 20px #ffffff;
 }
 
 button {
-    border-bottom: 2px solid red;
-    border-radius: 5px;
-    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 15%;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #e0e0e0;
+    box-shadow:  10px 10px 20px #8b8b8b,
+            -10px -10px 20px #ffffff;
+    transition: 0.3s;
 }
 
-.centerDiv {
-    margin-left: 25%;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
+button:active {
+    box-shadow: inset 20px 20px 60px #c5c5c5,
+                inset -20px -20px 60px #ffffff;
+    transition: 0.3s;
 }
 
-.centerDiv2 {
-    margin-left: 25%;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-}

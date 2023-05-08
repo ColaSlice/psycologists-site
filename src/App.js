@@ -25,6 +25,7 @@ function App() {
           <li><Link to="/LoginPage">Login</Link></li>
           <li><Link to="/RegisterPage">Register</Link></li>
           <li><Link to="/MessagePage">Message</Link></li>
+          <li><Link to="/PrivatePage">Bruger side</Link></li>
         </ul>
       </nav>
       <Routes>

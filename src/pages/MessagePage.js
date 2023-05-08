@@ -7,10 +7,12 @@ import './style.css';
 
 function MessagePage() {
     const [isLoading, setLoading] = useState(true);
-    const [tempMessage, setTempMessage] = useState(null);
+    const [tempMessage, setTempMessage] = useState();
     const [message, setMessage] = useState(null);
     //const user = ReadUserData();
+    const tempFinal = [];
     const final = [];
+    const hej = "hej";
 
     useEffect(() => {
         if(isLoading) {
@@ -23,23 +25,30 @@ function MessagePage() {
 
     useEffect(() => {
         if(tempMessage !== null) {
-            //console.log(tempMessage[0].message)
-            tempMessage.forEach(element => {
-                final[element] = element.message;
-                console.log(final);
-            });
+            if(!isLoading){
+                for(let i = 0; i < 1; i++){
+                    tempFinal[i] = tempMessage
+                    //console.log(Object.values(tempFinal[i][0])[2])
+                    final[i] = Object.values(tempFinal[i][0])[2];
+                    console.log(final[i])
+                }
+            }
         }
-    })
+    }, [final])
+    
 
     if (isLoading) {
         return <div className="App">Loading...</div>;
     }
 
-    return (
-        <div>
-            <ul>
-            </ul>
-        </div>
-    );
+    if(!isLoading){
+        return (
+            <div>
+                <ul>
+                    <li>{final.at(0)}</li>
+                </ul>
+            </div>
+        );
+    }
 }
 export default MessagePage;

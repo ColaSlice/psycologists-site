@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SaveToken from '../utils/SaveToken';
+import ReadUserData from '../utils/ReadUserData';
 
 function LoginPage() {
     const [isLoading, setLoading] = useState(false);
@@ -31,13 +32,15 @@ function LoginPage() {
                 license: ""
             }
 
-            axios.post("https://testside123.dk/api/LoginProxy/login", userData).then(response => {
+            axios.post("https://api.rbwr.dk/api/LoginProxy/login", userData).then(response => {
                 if(response.status.valueOf !== 400) {
                     localStorage.setItem("user", response.data.token);
                     setLoading(false);
                     setLogged(true);
                 }
-            });
+            }).catch(
+                console.log("ww")
+            );
         }
     });
 

@@ -22,10 +22,13 @@ function RegisterPage() {
                     license: form['license'].value
                 }
                 try {
-                    axios.post("https://testside123.dk/api/LoginProxy/register", userData).then(response => {
+                    axios.post("https://api.rbwr.dk/api/LoginProxy/register", userData).then(response => {
                         if(response.status.valueOf !== 400) {
                             setRegistrered(true);
                             setLoading(true);
+                        }
+                        else {
+                            console.log("FUK")
                         }
                     });
                 } catch (error) {
@@ -36,8 +39,8 @@ function RegisterPage() {
     }, [isLoading, isRegistrered]);
 
     useEffect(() => {
-        if(isRegistrered){
-            if(isLoading){
+        if(isRegistrered) {
+            if(isLoading) {
                 alert("You have been registrered, please go to the login page.")
             }
         }

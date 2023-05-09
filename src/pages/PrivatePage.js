@@ -11,8 +11,10 @@ function PrivatePage() {
     const [email, setEmail] = useState(null);
     const [license, setLicense] = useState(null);
     let navigate = useNavigate();
+
     const logout = () => {
         localStorage.removeItem("user");
+        cookies.remove("JWT");
         navigate("/");
     }
 

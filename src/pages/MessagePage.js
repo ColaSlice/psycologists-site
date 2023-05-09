@@ -12,7 +12,6 @@ function MessagePage() {
     //const user = ReadUserData();
     const tempFinal = [];
     const final = [];
-    const hej = "hej";
 
     useEffect(() => {
         if(isLoading) {
@@ -26,16 +25,14 @@ function MessagePage() {
     useEffect(() => {
         if(tempMessage !== null) {
             if(!isLoading){
-                for(let i = 0; i < 1; i++){
+                for(let i = 0; i < 1; i++) {
                     tempFinal[i] = tempMessage
-                    //console.log(Object.values(tempFinal[i][0])[2])
                     final[i] = Object.values(tempFinal[i][0])[2];
                     console.log(final[i])
                 }
             }
         }
     }, [final])
-    
 
     if (isLoading) {
         return <div className="App">Loading...</div>;

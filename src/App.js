@@ -20,12 +20,12 @@ function App() {
   return (
     <>
       <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/LoginPage">Login</Link></li>
-          <li><Link to="/RegisterPage">Register</Link></li>
-          <li><Link to="/MessagePage">Message</Link></li>
-          <li><Link to="/PrivatePage">Bruger side</Link></li>
+        <ul className='neo_ul'>
+          <li className='neo_li'><Link to="/">Home</Link></li>
+          <li className='neo_li'><Link to="/LoginPage">Login</Link></li>
+          <li className='neo_li'><Link to="/RegisterPage">Register</Link></li>
+          <li className='neo_li'><Link to="/MessagePage">Message</Link></li>
+          <li className='neo_li'><Link to="/PrivatePage">Bruger side</Link></li>
         </ul>
       </nav>
       <Routes>

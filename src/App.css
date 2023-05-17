@@ -1,14 +1,4 @@
-/*
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-*/
-
-ul {
+.neo_ul {
     width: 90%;
     margin-left: 5%;
     list-style-type: none;
@@ -21,7 +11,7 @@ ul {
                 -20px -20px 60px #ffffff;
 }
 
-li {
+.neo_li {
     float: left;
 }
 
@@ -102,6 +92,18 @@ background-color: #04AA6D;
                 -10px -10px 20px #ffffff;
 }
 
+.neo_message {
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 450px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  10px 10px 20px #8b8b8b,
+                -10px -10px 20px #ffffff;
+}
+
 button {
     margin-top: 20px;
     margin-left: 15%;
@@ -120,3 +122,11 @@ button:active {
     transition: 0.3s;
 }
 
+.message_li {
+    word-wrap: break-word;
+}
+
+.scroll {
+    overflow-y: scroll;
+    scrollbar-width: none;
+}

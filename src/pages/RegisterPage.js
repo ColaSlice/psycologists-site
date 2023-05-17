@@ -12,6 +12,7 @@ function RegisterPage() {
     }
 
     useEffect(() => {
+
         const form = nameForm.current;
         if (!isLoading) {
             if(!isRegistrered) {

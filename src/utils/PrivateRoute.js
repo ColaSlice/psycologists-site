@@ -1,8 +1,10 @@
 import { Outlet } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 const PrivateRoute = () => {
+    const cookies = new Cookies();
     let auth = {'token':false};
-    if (localStorage.getItem("user")) {
+    if (cookies.get("JWT")) {
         auth = {'token':true};
     }
     

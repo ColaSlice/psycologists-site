@@ -9,8 +9,6 @@ const SaveToken = (token) => {
 
     const ActualToken = temp.slice(start, end);
 
-    //alert(atob(ActualToken.split('.')[1]));
-
     const decoded = jwtDecode(ActualToken);
     cookies.set("JWT", ActualToken, {
         expires: new Date(decoded.exp * 1000),

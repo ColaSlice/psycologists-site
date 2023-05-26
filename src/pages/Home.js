@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default function Home() {
     return (
-        <div className='centerDiv'>
+        <div className='neo_message'>
             <h1>Home page</h1>
             <h2>
                 Velkommen.

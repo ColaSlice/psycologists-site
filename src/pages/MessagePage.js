@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import './style.css';
 import MessageHandler from '../utils/MessageHandler'
+import LoadingMessage from '../utils/LoadingMessage';
 
 function MessagePage() {
     const [isLoading, setLoading] = useState(true);
@@ -42,7 +43,7 @@ function MessagePage() {
     }, [isLoading, isSending]);
 
     if (isLoading) {
-        return <div className="App">Loading...</div>;
+        return <LoadingMessage/>
     }
 
     if(!isLoading) {

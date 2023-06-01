@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './utils/NavBar';
 
 import './App.css';
 
@@ -13,15 +14,7 @@ import PrivateRoute from './utils/PrivateRoute';
 function App() {
   return (
     <>
-      <nav>
-        <ul className='neo_ul'>
-          <li className='neo_li'><Link to="/">Home</Link></li>
-          <li className='neo_li'><Link to="/LoginPage">Login</Link></li>
-          <li className='neo_li'><Link to="/RegisterPage">Register</Link></li>
-          <li className='neo_li'><Link to="/MessagePage">Message</Link></li>
-          <li className='neo_li'><Link to="/PrivatePage">Bruger side</Link></li>
-        </ul>
-      </nav>
+      <NavBar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/LoginPage" element={<LoginPage />} />

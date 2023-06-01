@@ -62,7 +62,7 @@ function RegisterPage() {
                         <input className='input' type="text" label="email" name="email" placeholder='Email@email.com'></input>
                         <br/>
                         <br/>
-                        <input className='input' ype="text" label="license" name="license" placeholder='Profesional License'></input>
+                        <input className='input' type="text" label="license" name="license" placeholder='Profesional License'></input>
                         <br/>
                         <br/>
                     </form>
